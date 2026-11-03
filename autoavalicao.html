@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description"
+    content="Autoavaliação rápida sobre sua relação com a tecnologia. Responda em menos de 2 minutos e receba dicas personalizadas.">
+  <title>Autoavaliação Digital — Projeto de Extensão</title>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="autoavaliacao.css">
+</head>
+
+<body>
+
+  <!-- Barra superior institucional -->
+  <div class="topbar noprint">
+    <span class="topbar-label">📚 Projeto de Extensão Universitária</span>
+    <nav class="topbar-nav">
+      <a href="autoavalicao.html" class="topbar-link active">Autoavaliação</a>
+      <a href="dicas.html" class="topbar-link">Dicas</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema escuro/claro" title="Alternar tema">
+      <span class="theme-icon">🌙</span>
+    </button>
+  </div>
+
+  <main>
+
+    <!-- Cabeçalho -->
+    <header class="hero noprint">
+      <div class="hero-badge" aria-hidden="true">
+        <span class="hero-icon">📱</span>
+      </div>
+      <div class="hero-kicker">Autoavaliação Digital</div>
+      <h1>Como está a sua <em>relação com a tecnologia</em>?</h1>
+      <p class="lead">
+        Responda com sinceridade leva menos de 2 minutos.<br>
+        Não existe resposta certa ou errada. Nada é salvo.
+      </p>
+
+      <!-- Barra de progresso do formulário -->
+      <div class="progress-wrap noprint" id="progressWrap" hidden>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="progressFill"></div>
+        </div>
+        <span class="progress-label" id="progressLabel">0 de 7 respondidas</span>
+      </div>
+
+      <div class="divider" aria-hidden="true">comece abaixo</div>
+    </header>
+
+    <!-- O JavaScript monta as perguntas aqui dentro -->
+    <form id="f" novalidate></form>
+
+    <p id="aviso" class="note" role="alert" hidden>
+      Falta responder alguma pergunta. Ela está marcada logo acima.
+    </p>
+
+    <!-- Resultado -->
+    <section id="resultado" hidden aria-live="polite">
+      <div class="resultado-header">
+        <h2>✨ Seu resultado</h2>
+        <p class="resultado-subtitulo">Com base nas suas respostas, veja um panorama de cada área abaixo.</p>
+      </div>
+      <div id="areas"></div>
+
+      <div id="acoes">
+        <button class="btn" onclick="window.print()">🖨️ Imprimir / Salvar PDF</button>
+        <button class="btn alt" id="refazer">↩ Responder novamente</button>
+      </div>
+    </section>
+
+    <!-- Guia rápido -->
+    <section class="guia">
+      <div class="guia-title-row">
+        <span class="guia-icon" aria-hidden="true">💡</span>
+        <h2>Guia rápido</h2>
+      </div>
+      <p class="guia-sub">Dicas para um uso mais tranquilo da tecnologia no dia a dia.</p>
+      <ul>
+        <li>Silencie as notificações que não são importantes.</li>
+        <li>Deixe o celular longe da cama na hora de dormir e de estudar.</li>
+        <li>Reserve momentos sem tela: uma caminhada, um jogo, uma conversa.</li>
+        <li>Antes de compartilhar uma notícia, veja quem publicou, se tem data e se outros sites confirmam.</li>
+        <li>Em aplicativos de banco ou do governo, vá com calma. Nunca passe senhas ou códigos por mensagem.</li>
+        <li>Pedir ajuda é normal. Procure alguém de confiança e com paciência para ensinar.</li>
+      </ul>
+      <p class="note">
+        Saiba mais:
+        <a href="https://educamidia.org.br" target="_blank" rel="noopener noreferrer">EducaMídia</a>,
+        <a href="https://safernet.org.br" target="_blank" rel="noopener noreferrer">SaferNet</a>
+        e <a href="https://rededigital60mais.org.br" target="_blank" rel="noopener noreferrer">Rede Digital 60+</a>.
+      </p>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="footer-title">Projeto de Extensão Universitária</p>
+        <p class="footer-desc">
+          Esta ferramenta foi desenvolvida com fins educativos.<br>
+          Nenhum dado pessoal é coletado ou armazenado.
+        </p>
+        <div class="footer-divider"></div>
+        <p class="footer-copy">© 2026 — Uso livre para fins educacionais</p>
+
+        <svg xmlns="http://w3.org" viewBox="0 0 490 50" width="100%" height="auto"
+          style="max-width: 160px; display: inline-block; vertical-align: middle;">
+          <!-- Letra A -->
+          <circle cx="25" cy="25" r="22" fill="none" stroke="currentColor" stroke-width="2.5" />
+          <text x="25" y="26" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="24px"
+            fill="currentColor" text-anchor="middle" dominant-baseline="central">A</text>
+
+          <!-- Letra N -->
+          <circle cx="77" cy="25" r="22" fill="none" stroke="currentColor" stroke-width="2.5" />
+          <text x="77" y="26" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="24px"
+            fill="currentColor" text-anchor="middle" dominant-baseline="central">N</text>
+
+          <!-- Letra A -->
+          <circle cx="129" cy="25" r="22" fill="none" stroke="currentColor" stroke-width="2.5" />
+          <text x="129" y="26" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="24px"
+            fill="currentColor" text-anchor="middle" dominant-baseline="central">A</text>
+
+          <!-- Letra D -->
+          <circle cx="181" cy="25" r="22" fill="none" stroke="currentColor" stroke-width="2.5" />
+          <text x="181" y="26" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="24px"
+            fill="currentColor" text-anchor="middle" dominant-baseline="central">D</text>
+
+          <!-- Letra O -->
+          <circle cx="233" cy="25" r="22" fill="none" stroke="currentColor" stroke-width="2.5" />
+          <text x="233" y="26" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="24px"
+            fill="currentColor" text-anchor="middle" dominant-baseline="central">O</text>
+
+          <!-- Letra T -->
+          <circle cx="285" cy="25" r="22" fill="none" stroke="currentColor" stroke-width="2.5" />
+          <text x="285" y="26" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="24px"
+            fill="currentColor" text-anchor="middle" dominant-baseline="central">T</text>
+
+          <!-- Letra E -->
+          <circle cx="337" cy="25" r="22" fill="none" stroke="currentColor" stroke-width="2.5" />
+          <text x="337" y="26" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="24px"
+            fill="currentColor" text-anchor="middle" dominant-baseline="central">E</text>
+
+          <!-- Letra C -->
+          <circle cx="389" cy="25" r="22" fill="none" stroke="currentColor" stroke-width="2.5" />
+          <text x="389" y="26" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="24px"
+            fill="currentColor" text-anchor="middle" dominant-baseline="central">C</text>
+
+          <!-- Letra H -->
+          <circle cx="441" cy="25" r="22" fill="none" stroke="currentColor" stroke-width="2.5" />
+          <text x="441" y="26" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="24px"
+            fill="currentColor" text-anchor="middle" dominant-baseline="central">H</text>
+        </svg>
+
+      </div>
+    </footer>
+
+  </main>
+  <script src="script.js"></script>
+  <script src="theme.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Dicas práticas e informações importantes sobre tecnologia, segurança digital e bem-estar no mundo online.">
+  <title>Dicas Digitais — Projeto de Extensão</title>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS compartilhado -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dicas.css">
+</head>
+
+<body>
+
+  <!-- Barra superior -->
+  <div class="topbar noprint">
+    <span class="topbar-label">📚 Projeto de Extensão Universitária</span>
+    <nav class="topbar-nav">
+      <a href="autoavalicao.html" class="topbar-link">Autoavaliação</a>
+      <a href="dicas.html" class="topbar-link active">Dicas</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema escuro/claro" title="Alternar tema">
+      <span class="theme-icon">🌙</span>
+    </button>
+  </div>
+
+  <main>
+
+    <!-- Hero da página de dicas -->
+    <header class="hero noprint">
+      <div class="hero-badge" aria-hidden="true">
+        <span class="hero-icon">💡</span>
+      </div>
+      <div class="hero-kicker">Guia Prático</div>
+      <h1>Dicas para um uso <em>mais tranquilo</em> da tecnologia</h1>
+      <p class="lead">
+        Informações simples e importantes sobre segurança, bem-estar e notícias no mundo digital.
+      </p>
+      <div class="divider" aria-hidden="true">explore as seções</div>
+    </header>
+
+    <!-- Índice rápido -->
+    <nav class="indice noprint" aria-label="Índice da página">
+      <a href="#tela" class="indice-item">
+        <span class="indice-icon">🕐</span>
+        <span>Tempo de tela</span>
+      </a>
+      <a href="#seguranca" class="indice-item">
+        <span class="indice-icon">🔒</span>
+        <span>Segurança digital</span>
+      </a>
+      <a href="#noticias" class="indice-item">
+        <span class="indice-icon">📰</span>
+        <span>Notícias e fake news</span>
+      </a>
+      <a href="#recursos" class="indice-item">
+        <span class="indice-icon">📚</span>
+        <span>Onde aprender mais</span>
+      </a>
+    </nav>
+
+    <!-- ==============================
+         SEÇÃO 1 — TEMPO DE TELA
+         ============================== -->
+    <section class="dica-secao" id="tela">
+      <div class="secao-titulo">
+        <span class="secao-icon">🕐</span>
+        <h2>Tempo de tela e bem-estar</h2>
+      </div>
+
+      <div class="card-grid">
+
+        <article class="dica-card destaque">
+          <div class="card-icon">📵</div>
+          <h3>Crie zonas livres de celular</h3>
+          <p>
+            A cama e a mesa de refeições são ótimos lugares para começar.
+            Dormir sem o celular por perto melhora a qualidade do sono —
+            a luz da tela engana o cérebro e dificulta o descanso.
+          </p>
+        </article>
+
+        <article class="dica-card">
+          <div class="card-icon">🔕</div>
+          <h3>Silencie as notificações que não são urgentes</h3>
+          <p>
+            Cada notificação interrompe a sua atenção. Selecione apenas os
+            aplicativos que realmente precisam te avisar de imediato — como
+            chamadas e mensagens de pessoas próximas.
+          </p>
+        </article>
+
+        <article class="dica-card">
+          <div class="card-icon">⏱️</div>
+          <h3>Use o limite de tempo dos aplicativos</h3>
+          <p>
+            A maioria dos celulares tem uma função chamada "Bem-estar digital"
+            (Android) ou "Tempo de uso" (iPhone). Ela mostra quantas horas
+            você passou em cada app e permite definir um limite diário.
+          </p>
+          <p class="card-tip">
+            <strong>Como acessar:</strong> Configurações → Bem-estar digital
+            <em>ou</em> Configurações → Tempo de uso.
+          </p>
+        </article>
+
+        <article class="dica-card">
+          <div class="card-icon">🚶</div>
+          <h3>Reserve momentos sem tela</h3>
+          <p>
+            Uma caminhada, um jogo de cartas, uma conversa sem o celular na
+            mesa — pequenos momentos offline fazem uma grande diferença para
+            o seu humor e concentração ao longo do dia.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==============================
+         SEÇÃO 2 — SEGURANÇA DIGITAL
+         ============================== -->
+    <section class="dica-secao" id="seguranca">
+      <div class="secao-titulo">
+        <span class="secao-icon">🔒</span>
+        <h2>Segurança digital</h2>
+      </div>
+
+      <div class="card-grid">
+
+        <article class="dica-card destaque">
+          <div class="card-icon">🚨</div>
+          <h3>Nunca passe senhas ou códigos por mensagem</h3>
+          <p>
+            Bancos, governo e empresas sérias <strong>jamais</strong> pedem
+            sua senha, código do celular ou número do cartão por WhatsApp,
+            ligação ou e-mail. Se alguém pedir, é golpe — desligue ou ignore.
+          </p>
+        </article>
+
+        <article class="dica-card">
+          <div class="card-icon">🔑</div>
+          <h3>Use senhas diferentes para cada conta</h3>
+          <p>
+            Se você usa a mesma senha em vários lugares e um deles vazar,
+            todas as suas contas ficam em risco. Use senhas únicas para
+            banco, e-mail e redes sociais, pelo menos.
+          </p>
+          <p class="card-tip">
+            <strong>Dica:</strong> Um gerenciador de senhas (como o do próprio
+            celular) cria e guarda senhas fortes para você.
+          </p>
+        </article>
+
+        <article class="dica-card">
+          <div class="card-icon">🔍</div>
+          <h3>Vá com calma nos aplicativos importantes</h3>
+          <p>
+            Em apps de banco ou governo, leia cada tela com atenção antes de
+            apertar qualquer botão. Se aparecer algo inesperado, feche o app
+            e abra de novo — ou ligue para a central oficial.
+          </p>
+        </article>
+
+        <article class="dica-card">
+          <div class="card-icon">📲</div>
+          <h3>Baixe aplicativos somente de fontes oficiais</h3>
+          <p>
+            Use sempre a <strong>Play Store</strong> (Android) ou a
+            <strong>App Store</strong> (iPhone) para baixar aplicativos.
+            Links recebidos por WhatsApp ou SMS podem instalar vírus
+            sem você perceber.
+          </p>
+        </article>
+
+        <article class="dica-card">
+          <div class="card-icon">🆘</div>
+          <h3>Pedir ajuda é normal</h3>
+          <p>
+            Se você ficou em dúvida em algo no celular ou computador,
+            procure alguém de confiança — um familiar, amigo ou
+            funcionário de uma agência bancária. Não precisa resolver tudo sozinho.
+          </p>
+        </article>
+
+        <article class="dica-card">
+          <div class="card-icon">🔐</div>
+          <h3>Ative a verificação em duas etapas</h3>
+          <p>
+            Esse recurso adiciona uma camada extra de proteção: além da senha,
+            você precisa confirmar o acesso com um código enviado por SMS ou
+            gerado por um aplicativo. Ative especialmente no e-mail e no banco.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==============================
+         SEÇÃO 3 — NOTÍCIAS / FAKE NEWS
+         ============================== -->
+    <section class="dica-secao" id="noticias">
+      <div class="secao-titulo">
+        <span class="secao-icon">📰</span>
+        <h2>Notícias e fake news</h2>
+      </div>
+
+      <div class="checklist-box">
+        <h3 class="checklist-titulo">✅ Antes de compartilhar uma mensagem, pergunte-se:</h3>
+        <ul class="checklist">
+          <li>
+            <span class="check-icon">🗓️</span>
+            <div>
+              <strong>A notícia tem data?</strong>
+              Muitas notícias antigas são repostadas como se fossem atuais para causar confusão.
+            </div>
+          </li>
+          <li>
+            <span class="check-icon">🏢</span>
+            <div>
+              <strong>Quem publicou?</strong>
+              Veja se é um site conhecido e confiável. Desconfie de nomes parecidos com
+              portais famosos (ex.: "G1Notícias.net").
+            </div>
+          </li>
+          <li>
+            <span class="check-icon">🔎</span>
+            <div>
+              <strong>Outros sites confirmam?</strong>
+              Se a informação for verdadeira e importante, outros veículos também vão
+              reportar. Pesquise o assunto antes de acreditar.
+            </div>
+          </li>
+          <li>
+            <span class="check-icon">📖</span>
+            <div>
+              <strong>Você leu além do título?</strong>
+              Títulos são feitos para chamar atenção e muitas vezes exageram ou distorcem
+              o que está no texto. Leia o conteúdo completo.
+            </div>
+          </li>
+          <li>
+            <span class="check-icon">❤️</span>
+            <div>
+              <strong>Você está reagindo com emoção forte?</strong>
+              Notícias falsas costumam provocar raiva ou medo para serem compartilhadas
+              rapidamente. Quando sentir isso, pare e verifique com mais calma.
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card-grid mt-1">
+        <article class="dica-card">
+          <div class="card-icon">🤝</div>
+          <h3>Na dúvida, não compartilhe</h3>
+          <p>
+            Você não perde nada esperando um pouco para verificar uma informação.
+            Mas compartilhar algo falso pode prejudicar pessoas — e sua credibilidade
+            com quem recebe.
+          </p>
+        </article>
+
+        <article class="dica-card">
+          <div class="card-icon">💬</div>
+          <h3>Corrija com gentileza</h3>
+          <p>
+            Se alguém próximo compartilhou algo falso, avise com cuidado e sem
+            julgamento — a pessoa provavelmente não sabia. Mostre a fonte que
+            desmente a informação.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==============================
+         SEÇÃO 4 — RECURSOS
+         ============================== -->
+    <section class="dica-secao" id="recursos">
+      <div class="secao-titulo">
+        <span class="secao-icon">📚</span>
+        <h2>Onde aprender mais</h2>
+      </div>
+
+      <div class="recursos-grid">
+
+        <a href="https://educamidia.org.br" target="_blank" rel="noopener noreferrer" class="recurso-card">
+          <div class="recurso-header">
+            <span class="recurso-icon">🎓</span>
+            <span class="recurso-tag">Educação midiática</span>
+          </div>
+          <h3>EducaMídia</h3>
+          <p>Cursos e materiais gratuitos sobre como ler, analisar e produzir conteúdo de forma crítica na internet.</p>
+          <span class="recurso-link">educamidia.org.br →</span>
+        </a>
+
+        <a href="https://safernet.org.br" target="_blank" rel="noopener noreferrer" class="recurso-card">
+          <div class="recurso-header">
+            <span class="recurso-icon">🛡️</span>
+            <span class="recurso-tag">Segurança online</span>
+          </div>
+          <h3>SaferNet Brasil</h3>
+          <p>Organização que orienta sobre direitos e segurança na internet, com canal de ajuda e denúncias.</p>
+          <span class="recurso-link">safernet.org.br →</span>
+        </a>
+
+        <a href="https://rededigital60mais.org.br" target="_blank" rel="noopener noreferrer" class="recurso-card">
+          <div class="recurso-header">
+            <span class="recurso-icon">👴</span>
+            <span class="recurso-tag">Inclusão digital</span>
+          </div>
+          <h3>Rede Digital 60+</h3>
+          <p>Conteúdo e suporte voltado para pessoas com 60 anos ou mais que querem se sentir mais confiantes com a tecnologia.</p>
+          <span class="recurso-link">rededigital60mais.org.br →</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- CTA: voltar para a autoavaliação -->
+    <div class="cta-avaliacao noprint">
+      <div class="cta-inner">
+        <p class="cta-texto">Quer saber como está a sua relação com a tecnologia?</p>
+        <a href="autoavalicao.html" class="btn">Fazer a autoavaliação →</a>
+      </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="footer-title">Projeto de Extensão Universitária</p>
+        <p class="footer-desc">
+          Esta ferramenta foi desenvolvida com fins educativos.<br>
+          Nenhum dado pessoal é coletado ou armazenado.
+        </p>
+        <div class="footer-divider"></div>
+        <p class="footer-copy">© 2025 — Uso livre para fins educacionais</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="theme.js"></script>
+</body>
+</html>
+

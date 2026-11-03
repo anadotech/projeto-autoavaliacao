@@ -1,0 +1,328 @@
+/* =====================================================
+   dicas.css — estilos exclusivos da página de dicas
+   ===================================================== */
+
+/* ── Índice rápido ── */
+.indice {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  margin: 1.6rem 0 0;
+}
+
+.indice-item {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 1rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: none;
+  transition: background .18s, border-color .18s, transform .18s;
+  box-shadow: var(--shadow-xs);
+}
+
+.indice-item:hover {
+  background: var(--brand-light);
+  border-color: var(--brand);
+  transform: translateY(-1px);
+  color: var(--brand);
+}
+
+.indice-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+/* ── Seções de dicas ── */
+.dica-secao {
+  margin-top: 3rem;
+  scroll-margin-top: calc(var(--topbar-h) + 1rem);
+}
+
+.secao-titulo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--line);
+}
+
+.secao-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.secao-titulo h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  letter-spacing: -.02em;
+}
+
+/* ── Grid de cards ── */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+.mt-1 { margin-top: 1rem; }
+
+/* ── Card de dica ── */
+.dica-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .2s, transform .2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.dica-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--brand);
+  border-radius: 4px 0 0 4px;
+}
+
+.dica-card.destaque {
+  border-color: var(--brand);
+  background: var(--brand-light);
+}
+
+.dica-card.destaque::before {
+  background: var(--brand-2);
+}
+
+.dica-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.card-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  margin-bottom: 0.65rem;
+}
+
+.dica-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.dica-card p {
+  margin: 0 0 0.4rem;
+  font-size: 0.93rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.dica-card p:last-child { margin-bottom: 0; }
+
+.card-tip {
+  font-size: 0.87rem !important;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.8rem;
+  margin-top: 0.65rem !important;
+  color: var(--muted) !important;
+}
+
+/* ── Checklist ── */
+.checklist-box {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.6rem;
+  box-shadow: var(--shadow-sm);
+  border-top: 3px solid var(--brand);
+}
+
+.checklist-titulo {
+  font-size: 1rem;
+  margin: 0 0 1.1rem;
+}
+
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.checklist li {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  font-size: 0.95rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.checklist li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.check-icon {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+.checklist li div {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.checklist li strong {
+  color: var(--ink);
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+/* ── Recursos ── */
+.recursos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+.recurso-card {
+  display: block;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.3rem 1.4rem;
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: var(--ink);
+  border-bottom: none;
+  transition: box-shadow .2s, transform .2s, border-color .2s;
+}
+
+.recurso-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--brand);
+}
+
+.recurso-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.recurso-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.recurso-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--brand);
+  background: var(--brand-light);
+  padding: 0.15rem 0.6rem;
+  border-radius: 99px;
+}
+
+.recurso-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+}
+
+.recurso-card p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0 0 0.75rem;
+  line-height: 1.55;
+}
+
+.recurso-link {
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: var(--brand);
+}
+
+/* ── CTA ── */
+.cta-avaliacao {
+  margin-top: 3rem;
+}
+
+.cta-inner {
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2rem;
+  text-align: center;
+  box-shadow: 0 8px 32px var(--brand-glow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cta-texto {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--on-brand);
+  margin: 0;
+  opacity: .9;
+}
+
+.cta-inner .btn {
+  background: var(--on-brand);
+  color: var(--brand-2);
+  border-color: transparent;
+  box-shadow: 0 4px 16px rgba(0,0,0,.15);
+}
+
+.cta-inner .btn:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,.2);
+}
+
+/* ── Responsividade ── */
+@media (min-width: 560px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .recursos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .indice {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ── Impressão ── */
+@media print {
+  .indice, .cta-avaliacao { display: none !important; }
+
+  .dica-card, .checklist-box, .recurso-card {
+    break-inside: avoid;
+    box-shadow: none !important;
+    border-color: #999 !important;
+  }
+
+  .dica-card::before { display: none; }
+}
+
