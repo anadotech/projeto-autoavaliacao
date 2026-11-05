@@ -19,9 +19,767 @@
     href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
 
-  <!-- CSS -->
+  <!-- CSS externo com fallback para raiz e subpasta -->
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/dicas.css">
+  <link rel="stylesheet" href="dicas.css">
+
+  <!-- Estilos completos embutidos (garante carregamento instantâneo no GitHub Pages) -->
+  <style>
+    /* =====================================================
+       Variáveis e temas
+       ===================================================== */
+    :root {
+      --bg: #f2f5f9;
+      --paper: #ffffff;
+      --ink: #0f1f2e;
+      --muted: #5a7080;
+      --subtle: #8aa0af;
+      --brand: #1a6fb5;
+      --brand-2: #0d5ea0;
+      --brand-light: #e8f2fc;
+      --brand-glow: rgba(26, 111, 181, .2);
+      --on-brand: #ffffff;
+      --line: #d4dde6;
+      --accent: #f59e0b;
+      --accent-soft: #fef3c7;
+      --ok: #057a55;
+      --okbg: #d1fae5;
+      --mid: #b45309;
+      --midbg: #fef3c7;
+      --hi: #b91c1c;
+      --hibg: #fee2e2;
+      --shadow-xs: 0 1px 3px rgba(0, 0, 0, .06), 0 1px 2px rgba(0, 0, 0, .04);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, .07), 0 1px 3px rgba(0, 0, 0, .05);
+      --shadow-md: 0 6px 24px rgba(0, 0, 0, .09), 0 2px 6px rgba(0, 0, 0, .06);
+      --shadow-lg: 0 12px 40px rgba(0, 0, 0, .11), 0 4px 12px rgba(0, 0, 0, .07);
+      --radius-sm: 0.5rem;
+      --radius: 0.9rem;
+      --radius-lg: 1.25rem;
+      --topbar-h: 2.75rem;
+
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    [data-theme="dark"] {
+      --bg: #0c1a25;
+      --paper: #132030;
+      --ink: #dce8f0;
+      --muted: #7fa0b5;
+      --subtle: #4e6d80;
+      --brand: #4aa8f0;
+      --brand-2: #2e90e0;
+      --brand-light: #0d2a40;
+      --brand-glow: rgba(74, 168, 240, .18);
+      --on-brand: #05101a;
+      --line: #1e3348;
+      --accent: #f59e0b;
+      --accent-soft: #451a03;
+      --ok: #6ee7b7;
+      --okbg: #064e3b;
+      --mid: #fde68a;
+      --midbg: #78350f;
+      --hi: #fca5a5;
+      --hibg: #7f1d1d;
+      --shadow-xs: 0 1px 3px rgba(0, 0, 0, .25);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, .3), 0 1px 3px rgba(0, 0, 0, .2);
+      --shadow-md: 0 6px 24px rgba(0, 0, 0, .35), 0 2px 6px rgba(0, 0, 0, .25);
+      --shadow-lg: 0 12px 40px rgba(0, 0, 0, .4), 0 4px 12px rgba(0, 0, 0, .3);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0c1a25;
+        --paper: #132030;
+        --ink: #dce8f0;
+        --muted: #7fa0b5;
+        --subtle: #4e6d80;
+        --brand: #4aa8f0;
+        --brand-2: #2e90e0;
+        --brand-light: #0d2a40;
+        --brand-glow: rgba(74, 168, 240, .18);
+        --on-brand: #05101a;
+        --line: #1e3348;
+        --accent: #f59e0b;
+        --accent-soft: #451a03;
+        --ok: #6ee7b7;
+        --okbg: #064e3b;
+        --mid: #fde68a;
+        --midbg: #78350f;
+        --hi: #fca5a5;
+        --hibg: #7f1d1d;
+        --shadow-xs: 0 1px 3px rgba(0, 0, 0, .25);
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, .3), 0 1px 3px rgba(0, 0, 0, .2);
+        --shadow-md: 0 6px 24px rgba(0, 0, 0, .35), 0 2px 6px rgba(0, 0, 0, .25);
+        --shadow-lg: 0 12px 40px rgba(0, 0, 0, .4), 0 4px 12px rgba(0, 0, 0, .3);
+      }
+    }
+
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    /* =====================================================
+       Base
+       ===================================================== */
+    html {
+      font-size: 112%;
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--topbar-h) + 1.2rem);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      background: var(--bg);
+      background-image: radial-gradient(ellipse 80% 40% at 50% -5%, rgba(26, 111, 181, .08) 0%, transparent 65%);
+      color: var(--ink);
+      font-family: "Atkinson Hyperlegible", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* =====================================================
+       Barra superior institucional
+       ===================================================== */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--topbar-h);
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      box-shadow: var(--shadow-xs);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .topbar-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: .03em;
+    }
+
+    .topbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .topbar-link {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid transparent;
+      transition: color .18s, background .18s, border-color .18s;
+      border-bottom: none;
+    }
+
+    .topbar-link:hover {
+      color: var(--brand);
+      background: var(--brand-light);
+      border-bottom: none;
+    }
+
+    .topbar-link.active {
+      color: var(--brand);
+      background: var(--brand-light);
+      border-color: var(--brand);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 1.5px solid var(--line);
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: border-color .2s, background .2s;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--brand);
+      background: var(--brand-light);
+    }
+
+    /* =====================================================
+       Layout principal
+       ===================================================== */
+    main {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 0 1.1rem 4rem;
+    }
+
+    /* =====================================================
+       Hero / Cabeçalho
+       ===================================================== */
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem 2.5rem;
+      position: relative;
+    }
+
+    .hero-badge {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 5.5rem;
+      height: 5.5rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-badge::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 1.6rem;
+      background: linear-gradient(135deg, var(--brand) 0%, #2e90e0 100%);
+      opacity: .12;
+      transform: rotate(8deg) scale(1.12);
+    }
+
+    .hero-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 5.5rem;
+      height: 5.5rem;
+      border-radius: 1.5rem;
+      background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+      box-shadow: 0 10px 32px var(--brand-glow);
+      font-size: 2.2rem;
+      animation: float 5s ease-in-out infinite;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-7px) rotate(-3deg); }
+    }
+
+    .hero-kicker {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--brand);
+      background: var(--brand-light);
+      padding: 0.25rem 0.85rem;
+      border-radius: 99px;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      line-height: 1.2;
+      margin: 0 0 0.7rem;
+      letter-spacing: -0.025em;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    h1 em {
+      font-style: normal;
+      background: linear-gradient(90deg, var(--brand) 20%, #2e90e0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .lead {
+      color: var(--muted);
+      max-width: 30rem;
+      margin: 0 auto;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 1.8rem 0 0;
+      color: var(--subtle);
+      font-size: 0.75rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
+    /* =====================================================
+       Índice Rápido
+       ===================================================== */
+    .indice {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.6rem;
+      margin: 1.6rem 0 0;
+    }
+
+    .indice-item {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.7rem 1rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: none;
+      transition: background .18s, border-color .18s, transform .18s, color .18s;
+      box-shadow: var(--shadow-xs);
+    }
+
+    .indice-item:hover {
+      background: var(--brand-light);
+      border-color: var(--brand);
+      transform: translateY(-1px);
+      color: var(--brand);
+    }
+
+    .indice-icon {
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    /* =====================================================
+       Seções e Títulos
+       ===================================================== */
+    .dica-secao {
+      margin-top: 3rem;
+      scroll-margin-top: calc(var(--topbar-h) + 1.2rem);
+    }
+
+    .secao-titulo {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--line);
+    }
+
+    .secao-icon {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .secao-titulo h2 {
+      margin: 0;
+      font-size: 1.3rem;
+      letter-spacing: -.02em;
+      color: var(--ink);
+    }
+
+    /* =====================================================
+       Cards de Dicas
+       ===================================================== */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+    }
+
+    .mt-1 { margin-top: 1rem; }
+
+    .dica-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow .2s, transform .2s, border-color .2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dica-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--brand);
+      border-radius: 4px 0 0 4px;
+    }
+
+    .dica-card.destaque {
+      border-color: var(--brand);
+      background: var(--brand-light);
+    }
+
+    .dica-card.destaque::before {
+      background: var(--brand-2);
+    }
+
+    .dica-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+      border-color: var(--brand);
+    }
+
+    .card-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+      margin-bottom: 0.65rem;
+    }
+
+    .dica-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.05rem;
+      line-height: 1.35;
+      color: var(--ink);
+    }
+
+    .dica-card p {
+      margin: 0 0 0.4rem;
+      font-size: 0.93rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .dica-card p:last-child { margin-bottom: 0; }
+
+    .card-tip {
+      font-size: 0.87rem !important;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 0.55rem 0.8rem;
+      margin-top: 0.65rem !important;
+      color: var(--muted) !important;
+    }
+
+    /* =====================================================
+       Checklist Box
+       ===================================================== */
+    .checklist-box {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.6rem;
+      box-shadow: var(--shadow-sm);
+      border-top: 3px solid var(--brand);
+    }
+
+    .checklist-titulo {
+      font-size: 1.05rem;
+      margin: 0 0 1.1rem;
+      color: var(--ink);
+    }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .checklist li {
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+      font-size: 0.95rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .checklist li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .check-icon {
+      font-size: 1.2rem;
+      line-height: 1.4;
+      flex-shrink: 0;
+    }
+
+    .checklist li div {
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .checklist li strong {
+      color: var(--ink);
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    /* =====================================================
+       Cards de Recursos Externos
+       ===================================================== */
+    .recursos-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+    }
+
+    .recurso-card {
+      display: block;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.3rem 1.4rem;
+      box-shadow: var(--shadow-sm);
+      text-decoration: none;
+      color: var(--ink);
+      border-bottom: none;
+      transition: box-shadow .2s, transform .2s, border-color .2s;
+    }
+
+    .recurso-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+      border-color: var(--brand);
+    }
+
+    .recurso-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .recurso-icon {
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+
+    .recurso-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: var(--brand);
+      background: var(--brand-light);
+      padding: 0.15rem 0.6rem;
+      border-radius: 99px;
+    }
+
+    .recurso-card h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.05rem;
+      color: var(--ink);
+    }
+
+    .recurso-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin: 0 0 0.75rem;
+      line-height: 1.55;
+    }
+
+    .recurso-link {
+      font-size: 0.83rem;
+      font-weight: 700;
+      color: var(--brand);
+    }
+
+    /* =====================================================
+       Botões e CTA
+       ===================================================== */
+    .btn {
+      font: inherit;
+      font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 1.02rem;
+      padding: 0.9rem 2.2rem;
+      border-radius: 0.7rem;
+      border: 1.5px solid transparent;
+      background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+      color: var(--on-brand);
+      cursor: pointer;
+      letter-spacing: .02em;
+      transition: all .22s cubic-bezier(.4, 0, .2, 1);
+      box-shadow: 0 4px 18px var(--brand-glow);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4em;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px var(--brand-glow);
+    }
+
+    .cta-avaliacao {
+      margin-top: 3rem;
+    }
+
+    .cta-inner {
+      background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+      border-radius: var(--radius-lg);
+      padding: 2rem 2rem;
+      text-align: center;
+      box-shadow: 0 8px 32px var(--brand-glow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .cta-texto {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--on-brand);
+      margin: 0;
+      opacity: .95;
+    }
+
+    .cta-inner .btn {
+      background: var(--on-brand);
+      color: var(--brand-2);
+      border-color: transparent;
+      box-shadow: 0 4px 16px rgba(0,0,0,.15);
+    }
+
+    .cta-inner .btn:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,.2);
+      transform: translateY(-2px);
+    }
+
+    /* =====================================================
+       Rodapé e Anadotech
+       ===================================================== */
+    .site-footer {
+      margin-top: 3.5rem;
+    }
+
+    .footer-inner {
+      border-top: 1px solid var(--line);
+      padding-top: 2rem;
+      text-align: center;
+    }
+
+    .footer-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin: 0 0 0.4rem;
+    }
+
+    .footer-desc {
+      font-size: 0.83rem;
+      color: var(--subtle);
+      margin: 0 0 1.2rem;
+      line-height: 1.6;
+    }
+
+    .footer-divider {
+      height: 1px;
+      background: var(--line);
+      margin: 0 auto 1rem;
+      width: 3rem;
+      border-radius: 99px;
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: var(--subtle);
+      margin: 0;
+    }
+
+    .anadotech-container {
+      margin-top: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .anadotech-badge {
+      display: inline-block;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--brand);
+      background: var(--brand-light);
+      padding: 0.35rem 1.1rem;
+      border-radius: 99px;
+      border: 1px solid var(--line);
+      transition: all .2s;
+    }
+
+    .anadotech-badge:hover {
+      border-color: var(--brand);
+      box-shadow: 0 2px 10px var(--brand-glow);
+    }
+
+    /* =====================================================
+       Responsividade e Impressão
+       ===================================================== */
+    @media (min-width: 560px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .recursos-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .indice {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 400px) {
+      h1 { font-size: 1.65rem; }
+      .topbar-label { display: none; }
+    }
+
+    @media print {
+      .topbar, .indice, .cta-avaliacao, .theme-toggle, .noprint { display: none !important; }
+      body { background: #fff; color: #000; }
+      .dica-card, .checklist-box, .recurso-card {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border-color: #999 !important;
+      }
+      .dica-card::before { display: none; }
+    }
+  </style>
 </head>
 
 <body>
@@ -407,6 +1165,32 @@
   </main>
 
   <script src="js/theme.js"></script>
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const btn = document.getElementById("themeToggle");
+      const icon = btn ? btn.querySelector(".theme-icon") : null;
+      const saved = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      let dark = saved ? saved === "dark" : prefersDark;
+
+      function applyTheme() {
+        root.setAttribute("data-theme", dark ? "dark" : "light");
+        if (icon) icon.textContent = dark ? "☀️" : "🌙";
+        if (btn) btn.setAttribute("aria-label", dark ? "Ativar tema claro" : "Ativar tema escuro");
+      }
+
+      applyTheme();
+
+      if (btn) {
+        btn.addEventListener("click", () => {
+          dark = !dark;
+          localStorage.setItem("theme", dark ? "dark" : "light");
+          applyTheme();
+        });
+      }
+    })();
+  </script>
 </body>
 
 </html>
